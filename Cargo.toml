@@ -31,3 +31,7 @@ default = [
     "bit-vec-omnitool",
     "bit-set-omnitool",
 ]
+
+earley-omnitool = ["dep:earley-omnitool"]
+bit-vec-omnitool = ["dep:bit-vec-omnitool"]
+bit-set-omnitool = ["dep:bit-set-omnitool"]
