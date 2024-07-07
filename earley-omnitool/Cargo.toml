@@ -9,9 +9,6 @@ documentation = "http://pczarn.github.io/gearley/"
 repository = "https://github.com/pczarn/gearley"
 license = "MIT/Apache-2.0"
 
-[lib]
-name = "earley_omnitool"
-
 [dependencies]
 cfg = { version = "0.6.1", features = ["serialize"] }
 bit-matrix = { version = "0.6", features = ["serialize"] }
