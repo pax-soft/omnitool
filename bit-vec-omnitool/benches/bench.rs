@@ -11,12 +11,12 @@
 #![feature(test)]
 #![feature(hint_assert_unchecked)]
 
-extern crate bit_vec;
+extern crate bit_vec_omnitool;
 extern crate rand;
 extern crate rand_xorshift;
 extern crate test;
 
-use bit_vec::BitVec;
+use bit_vec_omnitool::BitVec;
 use rand::{Rng, RngCore, SeedableRng};
 use rand_xorshift::XorShiftRng;
 use test::{black_box, Bencher};

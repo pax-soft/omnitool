@@ -3,4 +3,6 @@ members = [
     "bit-set-omnitool",
     "bit-vec-omnitool",
     "earley-omnitool",
+    "omnitool",
 ]
+resolver = "2"

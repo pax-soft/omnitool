@@ -1,5 +1,5 @@
 [package]
-name = "bit-set"
+name = "bit-set-omnitool"
 version = "0.6.0"
 authors = ["Alexis Beingessner <a.beingessner@gmail.com>"]
 license = "Apache-2.0 OR MIT"
@@ -13,9 +13,10 @@ readme = "README.md"
 [dev-dependencies]
 rand = "0.8"
 
-[dependencies.bit-vec]
+[dependencies.bit-vec-omnitool]
 version = "0.7.0"
 default-features = false
+path = "../bit-vec-omnitool/"
 
 [features]
 default = ["std"]
