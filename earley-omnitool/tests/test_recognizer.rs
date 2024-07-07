@@ -2,15 +2,15 @@
 extern crate log;
 extern crate env_logger;
 extern crate cfg;
-extern crate gearley;
+extern crate earley_omnitool;
 
 mod helpers;
 
 use cfg::earley::Grammar;
 
-use gearley::forest::NullForest;
-use gearley::grammar::InternalGrammar;
-use gearley::recognizer::Recognizer;
+use earley_omnitool::forest::NullForest;
+use earley_omnitool::grammar::InternalGrammar;
+use earley_omnitool::recognizer::Recognizer;
 
 use helpers::Parse;
 

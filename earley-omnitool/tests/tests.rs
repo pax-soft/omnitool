@@ -1,15 +1,15 @@
 #[macro_use]
 extern crate log;
 extern crate cfg;
-extern crate gearley;
+extern crate earley_omnitool;
 
 #[macro_use]
 mod grammars;
 mod helpers;
 
-use gearley::grammar::InternalGrammar;
-use gearley::forest::{Bocage, NullForest};
-use gearley::recognizer::Recognizer;
+use earley_omnitool::grammar::InternalGrammar;
+use earley_omnitool::forest::{Bocage, NullForest};
+use earley_omnitool::recognizer::Recognizer;
 
 use grammars::*;
 use helpers::{SimpleEvaluator, Parse};

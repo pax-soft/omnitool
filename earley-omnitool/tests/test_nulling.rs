@@ -2,15 +2,15 @@
 extern crate log;
 extern crate cfg;
 extern crate env_logger;
-extern crate gearley;
+extern crate earley_omnitool;
 
 mod helpers;
 
 use cfg::earley::Grammar;
 use cfg::Symbol;
-use gearley::forest::{Bocage, CompactBocage};
-use gearley::grammar::InternalGrammar;
-use gearley::recognizer::Recognizer;
+use earley_omnitool::forest::{Bocage, CompactBocage};
+use earley_omnitool::grammar::InternalGrammar;
+use earley_omnitool::recognizer::Recognizer;
 
 use helpers::{Parse, SimpleCompactEvaluator, SimpleEvaluator};
 

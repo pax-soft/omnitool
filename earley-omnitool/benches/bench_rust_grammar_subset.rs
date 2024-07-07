@@ -2,7 +2,7 @@
 
 extern crate test;
 extern crate cfg;
-extern crate gearley;
+extern crate earley_omnitool;
 
 macro_rules! trace(($($tt:tt)*) => ());
 
@@ -11,10 +11,10 @@ mod helpers;
 
 use cfg::sequence::Separator::Proper;
 use cfg::earley::Grammar;
-use gearley::forest::{Bocage, NullForest};
-use gearley::grammar::InternalGrammar;
-use gearley::recognizer::Recognizer;
-use gearley::memory_use::MemoryUse;
+use earley_omnitool::forest::{Bocage, NullForest};
+use earley_omnitool::grammar::InternalGrammar;
+use earley_omnitool::recognizer::Recognizer;
+use earley_omnitool::memory_use::MemoryUse;
 
 use helpers::Parse;
 
@@ -38,9 +38,9 @@ macro_rules! rhs {
 }
 
 const TOKENS: &'static [u32] = rhs!(
-    use gearley::events::'{' PredictionEvents, MedialEvents, CompletionEvents '}';
-    use gearley::util::slice_builder::SliceBuilder;
-    use gearley::forest::depth_first::'{'
+    use earley_omnitool::events::'{' PredictionEvents, MedialEvents, CompletionEvents '}';
+    use earley_omnitool::util::slice_builder::SliceBuilder;
+    use earley_omnitool::forest::depth_first::'{'
         NullOrder, FastEvaluator, ArrayStore, ClosureActionEvaluator
     '}';
     pub use self::PathParsingMode::*;

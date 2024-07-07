@@ -4,10 +4,10 @@ use std::mem;
 
 use cfg::Symbol;
 
-use gearley::forest::bocage::traverse::{LeafHandle, NullingHandle, SumHandle, Traverse};
-use gearley::forest::node_handle::NodeHandle;
+use earley_omnitool::forest::bocage::traverse::{LeafHandle, NullingHandle, SumHandle, Traverse};
+use earley_omnitool::forest::node_handle::NodeHandle;
 
-use gearley::grammar::InternalGrammar;
+use earley_omnitool::grammar::InternalGrammar;
 
 use super::cartesian_product::CartesianProduct;
 

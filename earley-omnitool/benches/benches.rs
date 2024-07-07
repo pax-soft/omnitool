@@ -2,7 +2,7 @@
 
 extern crate test;
 extern crate cfg;
-extern crate gearley;
+extern crate earley_omnitool;
 
 macro_rules! trace(($($tt:tt)*) => ());
 
@@ -12,10 +12,10 @@ mod grammars;
 #[path = "../tests/helpers/mod.rs"]
 mod helpers;
 
-use gearley::grammar::InternalGrammar;
-use gearley::forest::{Bocage, NullForest};
-use gearley::recognizer::Recognizer;
-use gearley::memory_use::MemoryUse;
+use earley_omnitool::grammar::InternalGrammar;
+use earley_omnitool::forest::{Bocage, NullForest};
+use earley_omnitool::recognizer::Recognizer;
+use earley_omnitool::memory_use::MemoryUse;
 
 use grammars::*;
 use helpers::{SimpleEvaluator, Parse};

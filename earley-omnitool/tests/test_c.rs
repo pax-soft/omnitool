@@ -1,5 +1,5 @@
 extern crate cfg;
-extern crate gearley;
+extern crate earley_omnitool;
 extern crate c_lexer_logos;
 
 macro_rules! trace(($($tt:tt)*) => ());
@@ -7,10 +7,10 @@ macro_rules! trace(($($tt:tt)*) => ());
 mod helpers;
 
 use cfg::earley::Grammar;
-use gearley::forest::Bocage;
-use gearley::grammar::InternalGrammar;
-use gearley::recognizer::Recognizer;
-use gearley::memory_use::MemoryUse;
+use earley_omnitool::forest::Bocage;
+use earley_omnitool::grammar::InternalGrammar;
+use earley_omnitool::recognizer::Recognizer;
+use earley_omnitool::memory_use::MemoryUse;
 
 use helpers::Parse;
 

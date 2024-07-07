@@ -2,11 +2,11 @@ use std::borrow::Borrow;
 use std::fmt::Debug;
 
 use cfg::Symbol;
-use gearley::forest::bocage::order::NullOrder;
-use gearley::forest::compact_bocage::order::NullOrder as CompactNullOrder;
-use gearley::forest::{Bocage, CompactBocage, NullForest};
-use gearley::grammar::InternalGrammar;
-use gearley::recognizer::Recognizer;
+use earley_omnitool::forest::bocage::order::NullOrder;
+use earley_omnitool::forest::compact_bocage::order::NullOrder as CompactNullOrder;
+use earley_omnitool::forest::{Bocage, CompactBocage, NullForest};
+use earley_omnitool::grammar::InternalGrammar;
+use earley_omnitool::recognizer::Recognizer;
 
 pub trait Parse {
     fn parse(&mut self, tokens: &[u32]) -> bool;
