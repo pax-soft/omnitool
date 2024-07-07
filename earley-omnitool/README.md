@@ -1,0 +1,210 @@
+<div align="center">
+  <h1>gearley</h1>
+  <p>
+    <strong>An Earley parser engine.</strong>
+  </p>
+  <p>
+
+[![crates.io][crates.io shield]][crates.io link]
+[![Documentation][docs.rs badge]][docs.rs link]
+![Rust CI][github ci badge]
+![MSRV][rustc 1.65+]
+<br />
+<br />
+[![Dependency Status][deps.rs status]][deps.rs link]
+[![Download Status][shields.io download count]][crates.io link]
+
+  </p>
+</div>
+
+[crates.io shield]: https://img.shields.io/crates/v/gearley?label=latest
+[crates.io link]: https://crates.io/crates/gearley
+[docs.rs badge]: https://docs.rs/gearley/badge.svg?version=0.0.5
+[docs.rs link]: https://docs.rs/gearley/0.0.5/gearley/
+[github ci badge]: https://github.com/pczarn/gearley/workflows/CI/badge.svg?branch=master
+[rustc 1.65+]: https://img.shields.io/badge/rustc-1.65%2B-blue.svg
+[deps.rs status]: https://deps.rs/crate/gearley/0.0.5/status.svg
+[deps.rs link]: https://deps.rs/crate/gearley/0.0.5
+[shields.io download count]: https://img.shields.io/crates/d/gearley.svg
+
+Work in progress.
+[You can check the documentation here](`https://docs.rs/gearley/latest/gearley/).
+
+This engine is meant to be a foundation of an optimized parser generator.
+
+Gearley is inspired by the [Marpa parser](http://jeffreykegler.github.io/Marpa-web-site/)
+by Jeffrey Kegler.
+
+## Properties
+
+* blazing fast
+    * as fast as YAEP
+    * much faster than Marpa
+    * memory efficient
+    * new algorithm which uses online sorting
+    * TODO: new hybrid algorithm
+        * TODO: LALR
+        * TODO: LL(1)
+        * TODO: LR(1)
+    * both time and memory complexity are small for simple grammars
+        * time complexity: `O(n log n)` (n = input length) for `LR(1)` grammars
+        * memory complexity: linear in input length for `LR(1)` grammars
+    * lookahead
+        * 1 token of lookahead
+    * TODO: multithreaded parsing
+    * TODO: fearless right-recursion
+        * TODO: Leo's algorithm
+* general-purpose
+    * accepts all context-free grammars
+    * may be extended to accept any grammar with Pāṇini
+        * TODO: data-dependent grammars
+        * TODO: PEG
+        * TODO: negation
+        * TODO: boolean grammars
+    * interop with any parsing algorithm
+* safe
+    * TODO: pure safe Rust
+* elegant
+    * the recognizer has a simple design
+        * tiny core
+            * only 470 lines of code implementing the core algorithm
+        * mathematically elegant
+            * uses simple data structures
+        * three separate per-token passes
+            * just like Marpa
+        * highly preprocessed grammar
+            * less complexity in the recognizer and parse forest makes up for heavy grammar transformations
+    * naming
+        * Pāṇini is named after an ancient grammarian and Indian scholar
+        * parse forest naming is inspired by algebra
+* good error reporting
+    * perfect parse progress information
+    * tracing debugging
+* customizable
+    * extensible on every level
+    * customizable recognizer
+        * optional control over bottom-up parse fragment completion
+            * you control which fragments are admitted into the forest
+        * optional custom parse events
+        * optional initialization with given memory capacity
+        * generic over optional Performance Policy
+    * customizable parse forest
+        * optional control over ambiguous node ordering
+        * write your own parse forest
+        * two official parse forest impls and a null forest
+            * choose between a faster forest and a memory efficient forest
+            * optionally ignore parse result and get only parse success or failure
+* open source
+    * free is a fair price
+
+## Extending gearley
+
+The grammar is stored in a byte string. You may [serialize or deserialize it](https://docs.rs/gearley/0.0.5/gearley/grammar/struct.InternalGrammar.html)
+yourself. Grammar construction is implemented in the
+[cfg library](https://github.com/pczarn/cfg).
+
+The recognizer provides [an interface](https://docs.rs/gearley/0.0.5/gearley/forest/trait.Forest.html) for writing a custom parse forest. Or you
+may reuse the default parse forest algorithm, but write your own code for [controlling
+rule order](https://docs.rs/gearley/0.0.5/gearley/forest/order/trait.Order.html), and for storing evaluated values within each tree node.
+
+Yet another interface gives [control over rule completion](https://docs.rs/gearley/0.0.5/gearley/recognizer/struct.CompleteSum.html). You may reject certain
+completed rules or modify their parse forests as the parse progresses.
+
+Gearley is perfectly extensible on every level.
+
+## Glossary
+
+### Recognizer
+
+| Gearley term       | Marpa term             | Alternative term           |
+|--------------------|------------------------|----------------------------|
+| dot                | dotted rule            | --                         |
+| earleme            | earleme                | input location             |
+| item               | Earley item            | situation                  |
+| origin             | origin                 | distance                   |
+| rule history       | rule semantics         | --                         |
+| complete           | complete               | accept                     |
+
+Dot — a position in the grammar, which is an integer.
+
+Earleme — scalar position, currently equivalent to the input location index.
+
+Item — a value that consists of a dot, an origin and a bocage node.
+
+Origin — the Earley set number where a rule was predicted. Always smaller than
+the current Earley set ID for non-predicted items.
+
+Rule history — a rule summary that contains an action number and other information
+about semantics and the rule's journey through transformations. Each rule carries
+its own history.
+
+### Parse forest
+
+| Gearley term       | Marpa term             | Alternative term           |
+|--------------------|------------------------|----------------------------|
+| bocage             | bocage                 | Shared Packed Parse Forest |
+| depth-first bocage | Abstract Syntax Forest | --                         |
+| sum node           | glade                  | OR node                    |
+| product node       | factoring              | AND node                   |
+| leaf node          | bocage symbol          | leaf node                  |
+| root node          | peak glade             | top node                   |
+
+Bocage — a parse forest in the form of a Directed Acyclic Graph.
+
+Depth-first bocage — a bocage that is traversed by evaluating one whole bocage
+node at a time.
+
+Sum node — a node that sums the number of trees in the forest.
+
+Product node — a node that may multiply the number of trees in the forest.
+
+Leaf node — a terminal node that begins a single tree in the forest.
+
+Root node — a node that is used as a parse result.
+
+## Related work
+
+### In Rust
+
+* [LALRPOP](https://github.com/nikomatsakis/lalrpop) — a LR(1) parser generator focused on ease of use.
+* [rust-lang's GLL](https://github.com/rust-lang/gll/) — a parsing framework.
+  * [grammer with an E](https://github.com/lykenware/grammer/) — a grammar framework.
+* [Oak](https://github.com/ptal/oak/) — a PEG parser generator with typed expressions.
+
+### In other languages
+
+* [Marpa](https://jeffreykegler.github.io/Marpa-web-site/) — an Earley parser (not a generator)
+  that has advanced features. Written in literate C and in Perl.
+* [YAEP](https://github.com/vnmakarov/yaep) — an Earley parser engine that currently has
+  the best speed and small memory use. Written in C.
+
+### In academia
+
+* OMeta — a PEG parser with advanced features that go beyond parsing.
+* [SPPF-Style Parsing From Earley Recognisers](https://www.researchgate.net/publication/220367479_SPPF-Style_Parsing_From_Earley_Recognisers) — Elizabeth Scott.
+
+## Quotes
+
+> I'd be very happy to have a superfast general parser out there but some extremely bright minds have been unable to solve it for 40 years.
+
+ — Terence Parr, author of ANTLR
+
+> I would be very eager to see this.
+
+ — mydoghasticks
+
+## Thanks
+
+Thanks to Jay Earley, John Aycock, R. Nigel Horspool, and Elizabeth Scott who pioneered Earley parsing.
+
+Big thanks to [mr Jeffrey Kegler](https://github.com/jeffreykegler) who brought my attention to parsing and made this project possible through his work on Marpa/Earley and Kollos.
+
+Special thanks to CD PROJEKT RED, HAEVN, Kaśka Sochacka, sanah, Kwiat Jabłoni, Alex Rainbird, Beth Paterson, Carbon Based Lifeforms, and Solar Fields for providing amazing music, which made coding even more enjoyable.
+
+## License
+
+Dual-licensed for compatibility with the Rust project.
+
+Licensed under the Apache License Version 2.0:
+http://www.apache.org/licenses/LICENSE-2.0, or the MIT license:
+http://opensource.org/licenses/MIT, at your option.
