@@ -10,6 +10,12 @@ resolver = "2"
 name = "omnitool"
 version = "0.0.1"
 edition = "2021"
+authors = [ "Piotr Czarnecki <pioczarn@gmail.com>" ]
+description = "An Earley parser engine."
+keywords = ["grammar", "parsing", "algorithm", "data", "structure"]
+documentation = "http://docs.rs/omnitool/"
+repository = "https://github.com/pax-soft/omnitool"
+license = "Apache-2.0 OR MIT"
 
 [dependencies]
 earley-omnitool = { version = "0.0.5", path = "earley-omnitool/", optional = true }
