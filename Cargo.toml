@@ -8,7 +8,7 @@ resolver = "2"
 
 [package]
 name = "omnitool"
-version = "0.0.1"
+version = "0.0.2"
 edition = "2021"
 authors = [ "Piotr Czarnecki <pioczarn@gmail.com>" ]
 description = """
