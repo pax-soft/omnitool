@@ -3,6 +3,22 @@ members = [
     "bit-set-omnitool",
     "bit-vec-omnitool",
     "earley-omnitool",
-    "omnitool",
 ]
 resolver = "2"
+
+[package]
+name = "omnitool"
+version = "0.0.1"
+edition = "2021"
+
+[dependencies]
+earley-omnitool = { version = "0.0.5", path = "earley-omnitool/", optional = true }
+bit-vec-omnitool = { version = "0.7.0", path = "bit-vec-omnitool/", optional = true }
+bit-set-omnitool = { version = "0.6.0", path = "bit-set-omnitool/", optional = true }
+
+[features]
+default = [
+    "dep:earley-omnitool",
+    "dep:bit-vec-omnitool",
+    "dep:bit-set-omnitool",
+]
