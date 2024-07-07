@@ -10,7 +10,7 @@ bit-set-omnitool = { version = "0.6.0", path = "../bit-set-omnitool/", optional 
 
 [features]
 default = [
-    "earley-omnitool",
+    "dep:earley-omnitool",
     "dep:bit-vec-omnitool",
     "dep:bit-set-omnitool",
 ]

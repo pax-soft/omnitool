@@ -1,3 +1,5 @@
-extern crate earley_omnitool;
+// extern crate earley_omnitool;
 
-pub use earley_omnitool::Recognizer;
+// pub use earley_omnitool::Recognizer;
+
+pub fn empty() {}
