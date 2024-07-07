@@ -1,0 +1,6 @@
+[workspace]
+members = [
+    "bit-set-omnitool",
+    "bit-vec-omnitool",
+    "earley-omnitool",
+]
