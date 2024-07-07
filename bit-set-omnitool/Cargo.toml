@@ -20,5 +20,5 @@ path = "../bit-vec-omnitool/"
 
 [features]
 default = ["std"]
-std = ["bit-vec/std"]
+std = ["bit-vec-omnitool/std"]
 bench = []

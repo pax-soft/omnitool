@@ -52,7 +52,7 @@
 #![no_std]
 #![cfg_attr(feature = "bench", feature(test))]
 
-extern crate bit_vec;
+extern crate bit_vec_omnitool;
 #[cfg(test)]
 extern crate rand;
 #[cfg(feature = "bench")]
@@ -61,7 +61,7 @@ extern crate test;
 #[cfg(any(test, feature = "std"))]
 extern crate std;
 
-use bit_vec::{BitBlock, BitVec, Blocks};
+use bit_vec_omnitool::{BitBlock, BitVec, Blocks};
 use core::cmp;
 use core::cmp::Ordering;
 use core::fmt;
@@ -1076,7 +1076,7 @@ impl<'a, B: BitBlock> IntoIterator for &'a BitSet<B> {
 #[cfg(test)]
 mod tests {
     use super::BitSet;
-    use bit_vec::BitVec;
+    use bit_vec_omnitool::BitVec;
     use std::cmp::Ordering::{Equal, Greater, Less};
     use std::vec::Vec;
     use std::{format, vec};
