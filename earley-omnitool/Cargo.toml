@@ -1,6 +1,6 @@
 [package]
 name = "earley-omnitool"
-version = "0.0.5"
+version = "0.0.6"
 
 authors = [ "Piotr Czarnecki <pioczarn@gmail.com>" ]
 description = "An Earley parser engine."
@@ -12,7 +12,7 @@ license = "MIT/Apache-2.0"
 [dependencies]
 cfg = { version = "0.6.1", features = ["serialize"] }
 bit-matrix = { version = "0.6", features = ["serialize"] }
-bit-vec = "0.6"
+bit-vec = { version = "0.7", path = "../bit-vec-omnitool/", package = "bit-vec-omnitool" }
 optional = { version = "0.5", features = ["serde"] }
 ref_slice = "1.2"
 num = "0.2"

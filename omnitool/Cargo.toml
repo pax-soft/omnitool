@@ -1,0 +1,25 @@
+[package]
+name = "omnitool"
+version = "0.0.2"
+edition = "2021"
+authors = [ "Piotr Czarnecki <pioczarn@gmail.com>" ]
+description = """
+A curated respository of algorithms and data structures.
+The libraries are included as forks of Rust codebases.
+"""
+keywords = ["grammar", "parsing", "algorithm", "data", "structure"]
+documentation = "http://docs.rs/omnitool/"
+repository = "https://github.com/pax-soft/omnitool"
+license = "Apache-2.0 OR MIT"
+
+[dependencies]
+earley-omnitool = { version = "0.0.6", path = "../earley-omnitool/", optional = true }
+bit-vec-omnitool = { version = "0.7.0", path = "../bit-vec-omnitool/", optional = true }
+bit-set-omnitool = { version = "0.6.0", path = "../bit-set-omnitool/", optional = true }
+
+[features]
+default = [
+    "earley-omnitool",
+    "bit-vec-omnitool",
+    "bit-set-omnitool",
+]

@@ -20,7 +20,7 @@
 //! # Examples
 //!
 //! ```
-//! use bit_set::BitSet;
+//! use bit_set_omnitool::BitSet;
 //!
 //! // It's a regular set
 //! let mut s = BitSet::new();
@@ -190,7 +190,7 @@ impl BitSet<u32> {
     /// # Examples
     ///
     /// ```
-    /// use bit_set::BitSet;
+    /// use bit_set_omnitool::BitSet;
     ///
     /// let mut s = BitSet::new();
     /// ```
@@ -205,7 +205,7 @@ impl BitSet<u32> {
     /// # Examples
     ///
     /// ```
-    /// use bit_set::BitSet;
+    /// use bit_set_omnitool::BitSet;
     ///
     /// let mut s = BitSet::with_capacity(100);
     /// assert!(s.capacity() >= 100);
@@ -221,12 +221,12 @@ impl BitSet<u32> {
     /// # Examples
     ///
     /// ```
-    /// extern crate bit_vec;
-    /// extern crate bit_set;
+    /// extern crate bit_vec_omnitool;
+    /// extern crate bit_set_omnitool;
     ///
     /// fn main() {
-    ///     use bit_vec::BitVec;
-    ///     use bit_set::BitSet;
+    ///     use bit_vec_omnitool::BitVec;
+    ///     use bit_set_omnitool::BitSet;
     ///
     ///     let bv = BitVec::from_bytes(&[0b01100000]);
     ///     let s = BitSet::from_bit_vec(bv);
@@ -256,7 +256,7 @@ impl<B: BitBlock> BitSet<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_set::BitSet;
+    /// use bit_set_omnitool::BitSet;
     ///
     /// let mut s = BitSet::with_capacity(100);
     /// assert!(s.capacity() >= 100);
@@ -276,7 +276,7 @@ impl<B: BitBlock> BitSet<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_set::BitSet;
+    /// use bit_set_omnitool::BitSet;
     ///
     /// let mut s = BitSet::new();
     /// s.reserve_len(10);
@@ -301,7 +301,7 @@ impl<B: BitBlock> BitSet<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_set::BitSet;
+    /// use bit_set_omnitool::BitSet;
     ///
     /// let mut s = BitSet::new();
     /// s.reserve_len_exact(10);
@@ -319,7 +319,7 @@ impl<B: BitBlock> BitSet<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_set::BitSet;
+    /// use bit_set_omnitool::BitSet;
     ///
     /// let mut s = BitSet::new();
     /// s.insert(0);
@@ -339,7 +339,7 @@ impl<B: BitBlock> BitSet<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_set::BitSet;
+    /// use bit_set_omnitool::BitSet;
     ///
     /// let mut s = BitSet::new();
     /// s.insert(0);
@@ -390,7 +390,7 @@ impl<B: BitBlock> BitSet<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_set::BitSet;
+    /// use bit_set_omnitool::BitSet;
     ///
     /// let mut s = BitSet::new();
     /// s.insert(3231);
@@ -430,7 +430,7 @@ impl<B: BitBlock> BitSet<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_set::BitSet;
+    /// use bit_set_omnitool::BitSet;
     ///
     /// let s = BitSet::from_bytes(&[0b01001010]);
     ///
@@ -450,7 +450,7 @@ impl<B: BitBlock> BitSet<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_set::BitSet;
+    /// use bit_set_omnitool::BitSet;
     ///
     /// let a = BitSet::from_bytes(&[0b01101000]);
     /// let b = BitSet::from_bytes(&[0b10100000]);
@@ -481,7 +481,7 @@ impl<B: BitBlock> BitSet<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_set::BitSet;
+    /// use bit_set_omnitool::BitSet;
     ///
     /// let a = BitSet::from_bytes(&[0b01101000]);
     /// let b = BitSet::from_bytes(&[0b10100000]);
@@ -516,7 +516,7 @@ impl<B: BitBlock> BitSet<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_set::BitSet;
+    /// use bit_set_omnitool::BitSet;
     ///
     /// let a = BitSet::from_bytes(&[0b01101000]);
     /// let b = BitSet::from_bytes(&[0b10100000]);
@@ -554,7 +554,7 @@ impl<B: BitBlock> BitSet<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_set::BitSet;
+    /// use bit_set_omnitool::BitSet;
     ///
     /// let a = BitSet::from_bytes(&[0b01101000]);
     /// let b = BitSet::from_bytes(&[0b10100000]);
@@ -584,7 +584,7 @@ impl<B: BitBlock> BitSet<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_set::BitSet;
+    /// use bit_set_omnitool::BitSet;
     ///
     /// let a   = 0b01101000;
     /// let b   = 0b10100000;
@@ -607,7 +607,7 @@ impl<B: BitBlock> BitSet<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_set::BitSet;
+    /// use bit_set_omnitool::BitSet;
     ///
     /// let a   = 0b01101000;
     /// let b   = 0b10100000;
@@ -631,7 +631,7 @@ impl<B: BitBlock> BitSet<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_set::BitSet;
+    /// use bit_set_omnitool::BitSet;
     ///
     /// let a   = 0b01101000;
     /// let b   = 0b10100000;
@@ -663,7 +663,7 @@ impl<B: BitBlock> BitSet<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_set::BitSet;
+    /// use bit_set_omnitool::BitSet;
     ///
     /// let a   = 0b01101000;
     /// let b   = 0b10100000;
@@ -687,7 +687,7 @@ impl<B: BitBlock> BitSet<B> {
         /// # Examples
         ///
         /// ```
-        /// use bit_set::BitSet;
+        /// use bit_set_omnitool::BitSet;
         ///
         /// let mut a = BitSet::new();
         /// a.insert(2);
@@ -715,7 +715,7 @@ impl<B: BitBlock> BitSet<B> {
         /// # Examples
         ///
         /// ```
-        /// use bit_set::BitSet;
+        /// use bit_set_omnitool::BitSet;
         ///
         /// let mut a = BitSet::new();
         /// a.insert(2);
@@ -1615,7 +1615,7 @@ mod tests {
 #[cfg(feature = "bench")]
 mod bench {
     use super::BitSet;
-    use bit_vec::BitVec;
+    use bit_vec_omnitool::BitVec;
     use rand::{rngs::ThreadRng, thread_rng, RngCore};
 
     use test::{black_box, Bencher};

@@ -37,7 +37,7 @@
 //! [sieve]: http://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
 //!
 //! ```
-//! use bit_vec::BitVec;
+//! use bit_vec_omnitool::BitVec;
 //!
 //! let max_prime = 10000;
 //!
@@ -211,7 +211,7 @@ static FALSE: bool = false;
 /// # Examples
 ///
 /// ```
-/// use bit_vec::BitVec;
+/// use bit_vec_omnitool::BitVec;
 ///
 /// let mut bv = BitVec::from_elem(10, false);
 ///
@@ -298,7 +298,7 @@ impl BitVec<u32> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     /// let mut bv = BitVec::new();
     /// ```
     #[inline]
@@ -312,7 +312,7 @@ impl BitVec<u32> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     ///
     /// let mut bv = BitVec::from_elem(10, false);
     /// assert_eq!(bv.len(), 10);
@@ -353,7 +353,7 @@ impl BitVec<u32> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     ///
     /// let bv = BitVec::from_bytes(&[0b10100000, 0b00010010]);
     /// assert!(bv.eq_vec(&[true, false, true, false,
@@ -397,7 +397,7 @@ impl BitVec<u32> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     ///
     /// let bv = BitVec::from_fn(5, |i| { i % 2 == 0 });
     /// assert!(bv.eq_vec(&[true, false, true, false, true]));
@@ -539,7 +539,7 @@ impl<B: BitBlock> BitVec<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     ///
     /// let bv = BitVec::from_bytes(&[0b01100000]);
     /// assert_eq!(bv.get(0), Some(false));
@@ -574,7 +574,7 @@ impl<B: BitBlock> BitVec<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     ///
     /// let bv = BitVec::from_bytes(&[0b01100000]);
     /// unsafe {
@@ -596,7 +596,7 @@ impl<B: BitBlock> BitVec<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     ///
     /// let mut bv = BitVec::from_bytes(&[0b01100000]);
     /// *bv.get_mut(0).unwrap() = true;
@@ -625,7 +625,7 @@ impl<B: BitBlock> BitVec<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     ///
     /// let mut bv = BitVec::from_bytes(&[0b01100000]);
     /// unsafe {
@@ -655,7 +655,7 @@ impl<B: BitBlock> BitVec<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     ///
     /// let mut bv = BitVec::from_elem(5, false);
     /// bv.set(3, true);
@@ -686,7 +686,7 @@ impl<B: BitBlock> BitVec<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     ///
     /// let before = 0b01100000;
     /// let after  = 0b11111111;
@@ -709,7 +709,7 @@ impl<B: BitBlock> BitVec<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     ///
     /// let before = 0b01100000;
     /// let after  = 0b10011111;
@@ -740,7 +740,7 @@ impl<B: BitBlock> BitVec<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     ///
     /// let a   = 0b01100100;
     /// let b   = 0b01011010;
@@ -771,7 +771,7 @@ impl<B: BitBlock> BitVec<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     ///
     /// let a   = 0b01100100;
     /// let b   = 0b01011010;
@@ -801,7 +801,7 @@ impl<B: BitBlock> BitVec<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     ///
     /// let a   = 0b01100100;
     /// let b   = 0b01011010;
@@ -832,7 +832,7 @@ impl<B: BitBlock> BitVec<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     ///
     /// let a   = 0b01100100;
     /// let b   = 0b01011010;
@@ -864,7 +864,7 @@ impl<B: BitBlock> BitVec<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     ///
     /// let a   = 0b01100100;
     /// let b   = 0b01011010;
@@ -902,7 +902,7 @@ impl<B: BitBlock> BitVec<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     ///
     /// let a   = 0b01100110;
     /// let b   = 0b01010100;
@@ -933,7 +933,7 @@ impl<B: BitBlock> BitVec<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     ///
     /// let a   = 0b01100110;
     /// let b   = 0b01010100;
@@ -967,7 +967,7 @@ impl<B: BitBlock> BitVec<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     ///
     /// let a   = 0b01100110;
     /// let b   = 0b01010100;
@@ -1001,7 +1001,7 @@ impl<B: BitBlock> BitVec<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     ///
     /// let a   = 0b01100110;
     /// let b   = 0b01010100;
@@ -1028,7 +1028,7 @@ impl<B: BitBlock> BitVec<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     ///
     /// let mut bv = BitVec::from_elem(5, true);
     /// assert_eq!(bv.all(), true);
@@ -1057,7 +1057,7 @@ impl<B: BitBlock> BitVec<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     ///
     /// let mut bv = BitVec::from_elem(100, true);
     /// assert_eq!(bv.count_ones(), 100);
@@ -1080,7 +1080,7 @@ impl<B: BitBlock> BitVec<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     ///
     /// let mut bv = BitVec::from_elem(100, false);
     /// assert_eq!(bv.count_zeros(), 100);
@@ -1104,7 +1104,7 @@ impl<B: BitBlock> BitVec<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     ///
     /// let bv = BitVec::from_bytes(&[0b01110100, 0b10010010]);
     /// assert_eq!(bv.iter().filter(|x| *x).count(), 7);
@@ -1123,7 +1123,7 @@ impl<B: BitBlock> BitVec<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     ///
     /// let mut a = BitVec::from_elem(8, false);
     /// a.iter_mut().enumerate().for_each(|(index, mut bit)| {
@@ -1148,7 +1148,7 @@ impl<B: BitBlock> BitVec<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     ///
     /// let mut a = BitVec::from_bytes(&[0b10000000]);
     /// let mut b = BitVec::from_bytes(&[0b01100001]);
@@ -1201,7 +1201,7 @@ impl<B: BitBlock> BitVec<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     /// let mut a = BitVec::new();
     /// a.push(true);
     /// a.push(false);
@@ -1260,7 +1260,7 @@ impl<B: BitBlock> BitVec<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     ///
     /// let mut bv = BitVec::from_elem(10, false);
     /// assert_eq!(bv.none(), true);
@@ -1278,7 +1278,7 @@ impl<B: BitBlock> BitVec<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     ///
     /// let mut bv = BitVec::from_elem(10, false);
     /// assert_eq!(bv.any(), false);
@@ -1299,7 +1299,7 @@ impl<B: BitBlock> BitVec<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     ///
     /// let mut bv = BitVec::from_elem(3, true);
     /// bv.set(1, false);
@@ -1349,7 +1349,7 @@ impl<B: BitBlock> BitVec<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     ///
     /// let bv = BitVec::from_bytes(&[0b10100000]);
     ///
@@ -1370,7 +1370,7 @@ impl<B: BitBlock> BitVec<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     ///
     /// let mut bv = BitVec::from_bytes(&[0b01001011]);
     /// bv.truncate(2);
@@ -1397,7 +1397,7 @@ impl<B: BitBlock> BitVec<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     ///
     /// let mut bv = BitVec::from_elem(3, false);
     /// bv.reserve(10);
@@ -1431,7 +1431,7 @@ impl<B: BitBlock> BitVec<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     ///
     /// let mut bv = BitVec::from_elem(3, false);
     /// bv.reserve(10);
@@ -1457,7 +1457,7 @@ impl<B: BitBlock> BitVec<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     ///
     /// let mut bv = BitVec::new();
     /// bv.reserve(10);
@@ -1477,7 +1477,7 @@ impl<B: BitBlock> BitVec<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     ///
     /// let mut bv = BitVec::from_bytes(&[0b01001011]);
     /// bv.grow(2, true);
@@ -1530,7 +1530,7 @@ impl<B: BitBlock> BitVec<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     ///
     /// let mut bv = BitVec::from_bytes(&[0b01001001]);
     /// assert_eq!(bv.pop(), Some(true));
@@ -1562,7 +1562,7 @@ impl<B: BitBlock> BitVec<B> {
     /// # Examples
     ///
     /// ```
-    /// use bit_vec::BitVec;
+    /// use bit_vec_omnitool::BitVec;
     ///
     /// let mut bv = BitVec::new();
     /// bv.push(true);
