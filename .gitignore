@@ -1,2 +1,3 @@
-target
-Cargo.lock
+# All crates are libraries
+/target
+/Cargo.lock
